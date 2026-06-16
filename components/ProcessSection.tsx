@@ -59,7 +59,7 @@ export default function ProcessSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 px-5" style={{ background: "#f8f8fb" }}>
+    <section ref={sectionRef} className="py-14 sm:py-20 px-4" style={{ background: "#f8f8fb" }}>
       <style>{`
         @keyframes step-in {
           from { opacity: 0; transform: translateY(22px); }
@@ -79,7 +79,7 @@ export default function ProcessSection() {
       <div className="max-w-130 mx-auto">
         <div className="text-center mb-12">
           <div className="section-divider" />
-          <h2 className="text-gray-900 text-3xl font-black">서비스 진행 과정</h2>
+          <h2 className="text-gray-900 text-2xl sm:text-3xl font-black">서비스 진행 과정</h2>
           <p className="text-gray-500 text-sm mt-3">빠르고 체계적인 4단계 서비스</p>
         </div>
 
@@ -141,7 +141,7 @@ export default function ProcessSection() {
 
                 {/* 카드 */}
                 <div
-                  className={`flex-1 rounded-2xl p-4 ${!isLast ? "mb-4" : ""}`}
+                  className={`flex-1 rounded-2xl px-3 py-3.5 ${!isLast ? "mb-4" : ""}`}
                   style={{
                     background: "#fff",
                     border: isActive
@@ -155,16 +155,16 @@ export default function ProcessSection() {
                     transition: "opacity 0.45s ease, transform 0.45s ease, box-shadow 0.3s, border 0.3s",
                   }}
                 >
-                  <div className="flex items-center gap-3 mb-2">
+                  <div className="flex items-center gap-2.5 mb-2">
                     <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
+                      className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
                       style={{
                         background: isActive ? "#FFB80020" : "#FFB80010",
                         transition: "background 0.3s",
                       }}
                     >
                       <Icon
-                        size={24}
+                        size={20}
                         strokeWidth={1.6}
                         style={{
                           color: isActive ? "#FF8C00" : "#FFB800",

@@ -43,13 +43,13 @@ export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-20 px-5 bg-white">
+    <section className="py-14 sm:py-20 px-4 bg-white">
       <div className="max-w-130 mx-auto">
 
         {/* 헤더 */}
         <div className="text-center mb-12">
           <div className="section-divider" />
-          <h2 className="text-gray-900 text-3xl font-black">자주 묻는 질문</h2>
+          <h2 className="text-gray-900 text-2xl sm:text-3xl font-black">자주 묻는 질문</h2>
           <p className="text-gray-400 text-sm mt-3">궁금한 점이 있으시면 언제든 연락 주세요</p>
         </div>
 
@@ -75,7 +75,7 @@ export default function FaqSection() {
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                   className="w-full text-left"
-                  style={{ display: "flex", alignItems: "center", gap: 14, padding: "18px 20px", background: "transparent" }}
+                  style={{ display: "flex", alignItems: "center", gap: 12, padding: "16px 14px", background: "transparent" }}
                 >
                   {/* Q 아이콘 */}
                   <span
@@ -131,7 +131,7 @@ export default function FaqSection() {
                   <div style={{ overflow: "hidden" }}>
                     <div
                       style={{
-                        padding: "0 20px 20px 20px",
+                        padding: "0 14px 16px 14px",
                         display: "flex",
                         gap: 14,
                         alignItems: "flex-start",
@@ -157,7 +157,7 @@ export default function FaqSection() {
 
         {/* 하단 추가 문의 CTA */}
         <div
-          className="mt-8 rounded-2xl p-5 flex items-center gap-4"
+          className="mt-8 rounded-2xl px-3 py-4 flex items-center gap-3"
           style={{
             background: "linear-gradient(135deg,#FFF8E6 0%,#FFF3D6 100%)",
             border: "1px solid rgba(255,184,0,0.2)",

@@ -42,7 +42,7 @@ function ReviewCard({ review }: { review: (typeof REVIEWS_A)[number] }) {
         width: 240,
         background: "#fff",
         borderRadius: 16,
-        padding: "16px",
+        padding: "14px 12px",
         boxShadow: "0 2px 14px rgba(0,0,0,0.07)",
         border: "1px solid #f0f0f4",
       }}
@@ -84,7 +84,7 @@ export default function ReviewSection() {
       `}</style>
 
       {/* 헤더 */}
-      <div style={{ textAlign: "center", padding: "0 20px 32px" }}>
+      <div style={{ textAlign: "center", padding: "0 16px 24px" }}>
         <div className="section-divider" />
         <h2 style={{ fontSize: 22, fontWeight: 900, color: "#1a1f2e", margin: "0 0 16px" }}>
           고객 후기

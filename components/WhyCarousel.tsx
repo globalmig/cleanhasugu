@@ -74,15 +74,15 @@ function Card({ card }: { card: (typeof CARDS)[number] }) {
     <div
       style={{
         flexShrink: 0,
-        width: 252,
+        width: 230,
         background: "#fff",
-        borderRadius: 20,
+        borderRadius: 16,
         border: "1px solid rgba(0,0,0,0.06)",
         boxShadow: "0 2px 12px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.04)",
         overflow: "hidden",
       }}
     >
-      <div style={{ padding: "20px 20px 18px" }}>
+      <div style={{ padding: "14px 14px 12px" }}>
         {/* 아이콘 + 뱃지 */}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
           <div

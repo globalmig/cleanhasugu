@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import WhyCarousel from "@/components/WhyCarousel";
 import HeroVideo from "@/components/HeroVideo";
 import ReviewSection from "@/components/ReviewSection";
@@ -8,6 +9,7 @@ import StatsSection from "@/components/StatsSection";
 import ProcessSection from "@/components/ProcessSection";
 import FaqSection from "@/components/FaqSection";
 import SiteGNB from "@/components/SiteGNB";
+import FloatingCallButton from "@/components/FloatingCallButton";
 
 export default function Home() {
   return (
@@ -16,130 +18,50 @@ export default function Home() {
       <SiteGNB />
 
       {/* ── HERO SECTION ── */}
-      <section className="relative overflow-hidden" style={{ paddingTop: 56, height: 700 }}>
-        {/* 비디오 배경 */}
+      <section className="hero-section relative overflow-hidden" style={{ paddingTop: 56 }}>
         <HeroVideo />
-
-        {/* 밝은 오버레이 */}
         <div
           className="absolute inset-0"
-          style={{
-            background: "linear-gradient(145deg, rgba(255,255,255,0.82) 0%, rgba(240,248,255,0.68) 40%, rgba(255,255,255,0.78) 100%)",
-          }}
+          style={{ background: "linear-gradient(145deg, rgba(255,255,255,0.82) 0%, rgba(240,248,255,0.68) 40%, rgba(255,255,255,0.78) 100%)" }}
         />
-
-        {/* 좌우 2열 레이아웃 */}
-        <div
-          className="relative z-10 w-full h-full"
-          style={{
-            display: "flex",
-            alignItems: "flex-end",
-            height: 644,
-            maxWidth: 640,
-            margin: "0 auto",
-            padding: "0 24px",
-          }}
-        >
-          {/* 왼쪽: 텍스트 콘텐츠 */}
-          <div
-            style={{
-              flex: "0 0 52%",
-              paddingBottom: 40,
-              paddingTop: 32,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignSelf: "center",
-            }}
-          >
-            {/* 타이틀 */}
-            <h1 style={{ margin: "0 0 16px", lineHeight: 1.15, fontWeight: 900 }}>
-              <span style={{ display: "block", fontSize: 42, color: "#FF8C00" }}>깨끗한 하수구</span>
-              <span style={{ display: "block", fontSize: 42, color: "#111827" }}>제대로</span>
-              <span style={{ display: "block", fontSize: 42, color: "#111827" }}>해결합니다</span>
+        <div className="hero-inner relative z-10 w-full">
+          {/* 왼쪽: 텍스트 */}
+          <div className="hero-text">
+            <h1 style={{ margin: "0 0 12px", lineHeight: 1.15, fontWeight: 900 }}>
+              <span className="hero-title block" style={{ color: "#FF8C00" }}>깨끗한 하수구</span>
+              <span className="hero-title block" style={{ color: "#111827" }}>제대로</span>
+              <span className="hero-title block" style={{ color: "#111827" }}>해결합니다</span>
             </h1>
-
-            {/* 서브 카피 */}
-            <p
-              style={{
-                fontSize: 14,
-                color: "rgba(30,30,30,0.65)",
-                lineHeight: 1.75,
-                margin: "0 0 20px",
-              }}
-            >
-              막힘부터 악취까지
-              <br />
-              원인을 찾아 완벽 해결,
-              <br />
-              재발 걱정 없습니다.
+            <p className="text-xs sm:text-sm mb-4 sm:mb-5" style={{ color: "rgba(30,30,30,0.65)", lineHeight: 1.75 }}>
+              막힘부터 악취까지<br />원인을 찾아 완벽 해결,<br />재발 걱정 없습니다.
             </p>
-
-            {/* 뱃지 태그 */}
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 18 }}>
+            <div className="flex flex-wrap gap-1.5 mb-4">
               {["고압세척", "배관내시경", "재발 방지"].map((tag) => (
-                <span
-                  key={tag}
-                  style={{
-                    padding: "5px 13px",
-                    borderRadius: 999,
-                    fontSize: 11,
-                    fontWeight: 700,
-                    color: "#374151",
-                    background: "rgba(0,0,0,0.07)",
-                    backdropFilter: "blur(8px)",
-                    border: "1px solid rgba(0,0,0,0.15)",
-                    letterSpacing: "0.04em",
-                  }}
-                >
+                <span key={tag} className="text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full"
+                  style={{ color: "#374151", background: "rgba(0,0,0,0.07)", border: "1px solid rgba(0,0,0,0.15)" }}>
                   {tag}
                 </span>
               ))}
             </div>
-
-            {/* CTA 버튼 */}
-            <a
-              href="tel:01051172700"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-                padding: "14px 24px",
-                borderRadius: 999,
-                background: "linear-gradient(135deg,#FFB800,#FF6B00)",
-                color: "#000",
-                fontWeight: 900,
-                fontSize: 15,
-                width: "fit-content",
-                boxShadow: "0 4px 20px rgba(255,184,0,0.4)",
-                textDecoration: "none",
-              }}
-            >
-              <Phone size={17} strokeWidth={2} />
+            <a href="tel:01051172700"
+              className="inline-flex items-center gap-2 rounded-full font-black text-black text-sm sm:text-base"
+              style={{ padding: "12px 20px", background: "linear-gradient(135deg,#FFB800,#FF6B00)", boxShadow: "0 4px 20px rgba(255,184,0,0.4)", textDecoration: "none" }}>
+              <Phone size={15} strokeWidth={2} />
               지금 바로 상담하기
             </a>
           </div>
-
-          {/* 오른쪽: 인물 이미지 */}
-          <div
-            style={{
-              flex: "0 0 80%",
-              position: "relative",
-              alignSelf: "flex-end",
-              height: 800,
-              marginRight: -24,
-            }}
-          >
-            <Image src="/images/person01.png" alt="전문 기술자" fill className="object-contain object-bottom" style={{ objectPosition: "bottom right" }} priority />
+          {/* 오른쪽: 인물 */}
+          <div className="hero-person">
+            <Image src="/images/person01.png" alt="전문 기술자" fill className="object-contain object-bottom" priority />
           </div>
         </div>
       </section>
 
       {/* ── PHONE CTA BANNER ── */}
-      <section style={{ background: "linear-gradient(135deg,#FFB800 0%,#FF8C00 100%)" }} className="py-8 px-5">
+      <section style={{ background: "linear-gradient(135deg,#FFB800 0%,#FF8C00 100%)" }} className="py-6 sm:py-8 px-4">
         <div className="max-w-130 mx-auto text-center">
           <p className="text-black/70 text-xs font-medium mb-1">빠른 상담문의 진행해드립니다!</p>
-          <a href="tel:01051172700" className="text-black text-3xl font-black tracking-wider block">
+          <a href="tel:01051172700" className="text-black text-2xl sm:text-3xl font-black tracking-wider block">
             010-5117-2700
           </a>
           <p className="text-black/60 text-xs mt-1">24시간 365일 긴급출동 가능</p>
@@ -147,32 +69,26 @@ export default function Home() {
       </section>
 
       {/* ── PROBLEM SECTION ── */}
-      <section className="py-20 px-5 bg-white">
+      <section className="py-14 sm:py-20 px-4 bg-white">
         <div className="max-w-130 mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 sm:mb-12">
             <div className="section-divider"></div>
-            <h2 className="text-gray-900 text-3xl font-black">
+            <h2 className="text-gray-900 text-2xl sm:text-3xl font-black">
               집 안에서 이런 <span style={{ color: "#FF6B00" }}>문제</span>가<br />
               발생하셨나요?
             </h2>
           </div>
-
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-2 sm:gap-3">
             {[
               { img: "/images/problem_01.png", label: "변기 막힘" },
               { img: "/images/problem_02.png", label: "누수문제" },
               { img: "/images/problem_03.png", label: "하수구 막힘" },
               { img: "/images/problem_04.png", label: "악취" },
             ].map(({ img, label }) => (
-              <div key={label} className="card-hover relative rounded-2xl overflow-hidden shadow-md aspect-square">
+              <div key={label} className="card-hover relative rounded-xl sm:rounded-2xl overflow-hidden shadow-md aspect-square">
                 <Image src={img} alt={label} fill className="object-cover" />
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background: "linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.75) 100%)",
-                  }}
-                />
-                <span className="absolute bottom-3 left-3 text-white font-bold text-base drop-shadow">{label}</span>
+                <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.75) 100%)" }} />
+                <span className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 text-white font-bold text-sm sm:text-base drop-shadow">{label}</span>
               </div>
             ))}
           </div>
@@ -180,15 +96,14 @@ export default function Home() {
       </section>
 
       {/* ── WHY CHOOSE US ── */}
-      <section className="py-20" style={{ background: "#f8f8fb" }}>
-        <div className="max-w-130 mx-auto px-5 mb-12">
+      <section className="py-14 sm:py-20" style={{ background: "#f8f8fb" }}>
+        <div className="max-w-130 mx-auto px-4 mb-8 sm:mb-12">
           <div className="text-center">
             <div className="section-divider"></div>
-            <h2 className="text-gray-900 text-3xl font-black">왜 저희를 선택해야 할까요?</h2>
+            <h2 className="text-gray-900 text-2xl sm:text-3xl font-black">왜 저희를 선택해야 할까요?</h2>
             <p className="text-gray-500 text-sm mt-3">자격증 보유 전문가의 7가지 차별점</p>
           </div>
         </div>
-
         <WhyCarousel />
       </section>
 
@@ -196,11 +111,11 @@ export default function Home() {
       <StatsSection />
 
       {/* ── BEFORE/AFTER SECTION ── */}
-      <section className="py-20 px-5 bg-white">
+      <section className="py-14 sm:py-20 px-4 bg-white">
         <div className="max-w-130 mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 sm:mb-12">
             <div className="section-divider"></div>
-            <h2 className="text-gray-900 text-3xl font-black">시공 전 · 후 비교</h2>
+            <h2 className="text-gray-900 text-2xl sm:text-3xl font-black">시공 전 · 후 비교</h2>
             <p className="text-gray-500 text-sm mt-2">고압세척 후 완전히 달라진 배관 상태를 확인하세요</p>
           </div>
 
@@ -210,7 +125,7 @@ export default function Home() {
 
           <div className="grid grid-cols-2 gap-3 mt-4">
             <div
-              className="rounded-2xl p-4 text-center"
+              className="rounded-2xl px-3 py-3.5 text-center"
               style={{
                 background: "#fff",
                 border: "1px solid #fecaca",
@@ -225,7 +140,7 @@ export default function Home() {
               </p>
             </div>
             <div
-              className="rounded-2xl p-4 text-center"
+              className="rounded-2xl px-3 py-3.5 text-center"
               style={{
                 background: "#fff",
                 border: "1px solid #bbf7d0",
@@ -240,6 +155,23 @@ export default function Home() {
               </p>
             </div>
           </div>
+
+          <div className="mt-5 text-center">
+            <Link
+              href="/gallery"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-black text-sm no-underline transition-all"
+              style={{
+                background: "linear-gradient(135deg,#FFB800,#FF6B00)",
+                color: "#000",
+                boxShadow: "0 4px 16px rgba(255,184,0,0.35)",
+              }}
+            >
+              더 자세한 사례 보기
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -247,15 +179,15 @@ export default function Home() {
       <ProcessSection />
 
       {/* ── EQUIPMENT SECTION ── */}
-      <section className="py-20 px-5 bg-white">
+      <section className="py-14 sm:py-20 px-4 bg-white">
         <div className="max-w-130 mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 sm:mb-12">
             <div className="section-divider"></div>
-            <h2 className="text-gray-900 text-3xl font-black">전문 장비 사용</h2>
+            <h2 className="text-gray-900 text-2xl sm:text-3xl font-black">전문 장비 사용</h2>
             <p className="text-gray-500 text-sm mt-2">최신 전문 장비로 더 빠르고 완벽하게</p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-2 sm:gap-3">
             <div
               className="card-hover rounded-2xl overflow-hidden"
               style={{
@@ -267,7 +199,7 @@ export default function Home() {
               <div className="aspect-square relative">
                 <Image src="/images/tool_01.png" alt="고압 세척 장비" fill className="object-cover" />
               </div>
-              <div className="p-4">
+              <div className="px-3 py-3">
                 <h3 className="font-black text-gray-900 text-sm mb-1">고압 세척기</h3>
                 <p className="text-gray-400 text-xs leading-relaxed">200bar 초고압 워터젯으로 강력한 세척 효과</p>
               </div>
@@ -284,7 +216,7 @@ export default function Home() {
               <div className="aspect-square relative">
                 <Image src="/images/tool_02.png" alt="배관 내시경 카메라" fill className="object-cover" />
               </div>
-              <div className="p-4">
+              <div className="px-3 py-3">
                 <h3 className="font-black text-gray-900 text-sm mb-1">배관 내시경 카메라</h3>
                 <p className="text-gray-400 text-xs leading-relaxed">HD 카메라로 배관 내부 정밀 진단</p>
               </div>
@@ -292,7 +224,7 @@ export default function Home() {
           </div>
 
           <div
-            className="mt-4 rounded-2xl p-5"
+            className="mt-4 rounded-2xl px-3 py-4"
             style={{
               background: "#fff",
               border: "1px solid rgba(0,0,0,0.06)",
@@ -315,7 +247,7 @@ export default function Home() {
       </section>
 
       {/* ── BACKGROUND SECTION 2 ── */}
-      <section className="relative py-24 px-5 overflow-hidden">
+      <section className="relative py-16 sm:py-24 px-4 overflow-hidden">
         {/* 배경 영상 */}
         <BgVideo src="/videos/hero_01.mp4" />
 
@@ -331,7 +263,7 @@ export default function Home() {
           <p className="text-sm font-bold mb-3" style={{ color: "#FFB800" }}>
             전문가에게 맡기세요
           </p>
-          <h2 className="text-white text-3xl font-black leading-snug mb-5">
+          <h2 className="text-white text-2xl sm:text-3xl font-black leading-snug mb-5">
             하수구 문제,
             <br />
             혼자 고민하지 마세요
@@ -345,7 +277,7 @@ export default function Home() {
           </p>
           <a
             href="tel:01051172700"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-black text-black text-lg shadow-2xl"
+            className="inline-flex items-center gap-2 px-6 sm:px-8 py-4 rounded-full font-black text-black text-base sm:text-lg shadow-2xl"
             style={{ background: "linear-gradient(135deg,#FFB800,#FF6B00)" }}
           >
             <Phone size={20} strokeWidth={2} />
@@ -358,19 +290,12 @@ export default function Home() {
       <ReviewSection />
 
       {/* ── SERVICE AREA MAP SECTION ── */}
-      <section className="relative py-20 overflow-hidden" style={{ background: "linear-gradient(160deg,#06060f 0%,#090918 60%,#050d18 100%)" }}>
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: "linear-gradient(rgba(0,255,180,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,180,0.025) 1px,transparent 1px)",
-            backgroundSize: "44px 44px",
-          }}
-        />
-        <div className="relative z-10 max-w-130 mx-auto px-5">
-          <p className="text-xs font-bold uppercase tracking-widest mb-2 text-center" style={{ color: "#FFB800" }}>
-            Service Area
-          </p>
-          <h2 className="text-white text-3xl font-black text-center mb-6">서비스 지역</h2>
+      <section className="relative py-14 sm:py-20 overflow-hidden" style={{ background: "linear-gradient(160deg,#06060f 0%,#090918 60%,#050d18 100%)" }}>
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ backgroundImage: "linear-gradient(rgba(0,255,180,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,180,0.025) 1px,transparent 1px)", backgroundSize: "44px 44px" }} />
+        <div className="relative z-10 max-w-130 mx-auto px-4">
+          <p className="text-xs font-bold uppercase tracking-widest mb-2 text-center" style={{ color: "#FFB800" }}>Service Area</p>
+          <h2 className="text-white text-2xl sm:text-3xl font-black text-center mb-6">서비스 지역</h2>
 
           <div className="w-full max-w-3xl">
             <Image src="/images/map.png" alt="서비스 지역 지도" width={900} height={900} className="mx-auto rounded-2xl shadow-lg object-cover" />
@@ -385,7 +310,7 @@ export default function Home() {
 
       {/* ── FINAL CTA ── */}
       <section
-        className="relative py-24 px-5 overflow-hidden"
+        className="relative py-16 sm:py-24 px-4 overflow-hidden"
         style={{
           background: "linear-gradient(135deg,#FFB800 0%,#FF8C00 50%,#FF6B00 100%)",
         }}
@@ -394,7 +319,7 @@ export default function Home() {
           <Image src="/images/bg_04.png" alt="배경" fill className="object-cover" />
         </div>
         <div className="relative z-10 max-w-130 mx-auto text-center">
-          <h2 className="text-black text-3xl font-black leading-snug mb-3">
+          <h2 className="text-black text-2xl sm:text-3xl font-black leading-snug mb-3">
             지금 바로
             <br />
             해결하세요!
@@ -413,7 +338,7 @@ export default function Home() {
             010-5117-2700
           </a>
 
-          <div className="flex justify-center gap-6 mt-6">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-6 mt-6">
             {["무료 현장 진단", "당일 시공 가능", "AS 보장"].map((item) => (
               <div key={item} className="flex items-center gap-1">
                 <Check size={13} strokeWidth={2.5} color="rgba(0,0,0,0.6)" />
@@ -425,7 +350,7 @@ export default function Home() {
       </section>
 
       {/* ── FOOTER ── */}
-      <footer className="py-14 px-5 text-center" style={{ background: "#0d0d1a" }}>
+      <footer className="py-14 px-4 text-center" style={{ background: "#0d0d1a" }}>
         <div className="max-w-130 mx-auto">
           <div className="flex items-center justify-center gap-2 mb-3">
             <span style={{ background: "linear-gradient(135deg,#FFB800,#FF6B00)", borderRadius: 6 }} className="w-7 h-7 flex items-center justify-center">
@@ -447,6 +372,7 @@ export default function Home() {
           <p className="text-white/20 text-xs mt-4">© 2024 깨끗한 하수구. All rights reserved.</p>
         </div>
       </footer>
+      <FloatingCallButton />
     </main>
   );
 }
