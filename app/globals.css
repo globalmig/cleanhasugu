@@ -20,6 +20,8 @@ body {
   color: var(--foreground);
   font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 @keyframes fadeInUp {
@@ -97,7 +99,44 @@ body {
   background-clip: text;
 }
 
-/* 가로 스크롤 트랙 - 스크롤바 숨김 */
+/* ── 히어로 반응형 ── */
+/* 모바일 기본: col (내용 위, 이미지 아래) */
+.hero-section  { }
+.hero-inner    { display: flex; flex-direction: column; align-items: center; height: auto; max-width: 640px; margin: 0 auto; padding: 28px 20px 0; }
+.hero-text     { flex: none; width: 100%; padding: 0 0 6px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.hero-title    { font-size: 26px; }
+.hero-person   { flex: none; position: relative; height: 220px; width: 68%; margin-right: 0; align-self: center; }
+
+@media (min-width: 400px) {
+  .hero-inner    { padding: 32px 20px 0; }
+  .hero-title    { font-size: 30px; }
+  .hero-person   { height: 250px; width: 72%; }
+}
+
+@media (min-width: 540px) {
+  .hero-inner    { padding: 40px 24px 0; }
+  .hero-title    { font-size: 36px; }
+  .hero-person   { height: 300px; width: 65%; }
+}
+
+/* 768px 이상: row (내용 좌, 이미지 우) */
+@media (min-width: 768px) {
+  .hero-section  { height: 680px; min-height: auto; }
+  .hero-inner    { flex-direction: row; align-items: flex-end; height: 620px; max-width: 960px; padding: 0 40px; }
+  .hero-text     { flex: 0 0 48%; text-align: left; align-items: flex-start; align-self: center; padding: 0 0 40px; width: auto; }
+  .hero-title    { font-size: 48px; }
+  .hero-person   { flex: 0 0 58%; width: auto; height: 680px; margin-right: -40px; align-self: flex-end; }
+  .hero-person img { object-position: right bottom; }
+}
+
+@media (min-width: 1024px) {
+  .hero-section  { height: 760px; }
+  .hero-inner    { height: 700px; max-width: 1200px; padding: 0 60px; }
+  .hero-title    { font-size: 60px; }
+  .hero-person   { height: 760px; margin-right: -60px; }
+}
+
+/* ── 가로 스크롤 트랙 - 스크롤바 숨김 ── */
 .why-scroll-track {
   scrollbar-width: none;      /* Firefox */
   -ms-overflow-style: none;   /* IE/Edge */
