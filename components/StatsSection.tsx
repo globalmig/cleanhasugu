@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const STATS = [
   { target: 5000, suffix: "+", label: "누적 시공건수", unit: "건" },
@@ -40,12 +41,9 @@ function StatItem({ stat, started }: { stat: (typeof STATS)[number]; started: bo
       : count.toString();
 
   return (
-    <div
-      className="text-center py-2"
-      style={{ borderRight: undefined }}
-    >
+    <div className="text-center py-5 md:py-2">
       <p
-        className="text-4xl font-black mb-1.5 tracking-tight"
+        className="text-3xl sm:text-4xl font-black mb-1.5 tracking-tight"
         style={{ color: "#FFB800", fontVariantNumeric: "tabular-nums" }}
       >
         {display}
@@ -79,20 +77,29 @@ export default function StatsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 px-5" style={{ background: "#0d0d1a" }}>
-      <div className="max-w-130 mx-auto">
+    <section ref={sectionRef} className="relative py-14 sm:py-20 px-4 overflow-hidden" style={{ background: "#0d0d1a" }}>
+      {/* 배경 물 이미지 */}
+      <Image
+        src="/images/bg_water.jpg"
+        alt=""
+        fill
+        className="object-cover"
+        style={{ opacity: 0.35 }}
+        aria-hidden="true"
+      />
+      <div className="absolute inset-0" style={{ background: "rgba(13,13,26,0.55)" }} />
+      <div className="relative z-10 max-w-130 mx-auto">
         <p className="text-white/40 text-xs text-center mb-2 uppercase tracking-widest">
           Trusted by customers
         </p>
-        <h2 className="text-white text-2xl font-black text-center mb-12">누적 서비스 현황</h2>
+        <h2 className="text-white text-2xl sm:text-3xl font-black text-center mb-8 sm:mb-12">누적 서비스 현황</h2>
 
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-3">
           {STATS.map((stat, i) => (
             <div
               key={stat.label}
-              style={{
-                borderRight: i < STATS.length - 1 ? "1px solid rgba(255,255,255,0.08)" : "none",
-              }}
+              className={i < STATS.length - 1 ? "border-b md:border-b-0 md:border-r" : ""}
+              style={i < STATS.length - 1 ? { borderColor: "rgba(255,255,255,0.08)" } : {}}
             >
               <StatItem stat={stat} started={started} />
             </div>
@@ -108,3 +115,4 @@ export default function StatsSection() {
     </section>
   );
 }
+
