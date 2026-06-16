@@ -77,7 +77,7 @@ export default function GalleryManager({
   };
 
   return (
-    <div className="p-8">
+    <div className="p-4 sm:p-8">
       {/* 헤더 */}
       <div className="flex items-center justify-between mb-6">
         <div>

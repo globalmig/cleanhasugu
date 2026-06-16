@@ -79,7 +79,7 @@ export default async function GalleryPage() {
         />
         <div className="relative z-10 max-w-130 mx-auto px-5 py-12 text-center">
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#FFB800" }}>Gallery</p>
-          <h1 className="text-white text-3xl font-black mb-3">시공 갤러리</h1>
+          <h1 className="text-white text-2xl sm:text-3xl font-black mb-3">시공 갤러리</h1>
           <p className="text-white/50 text-sm leading-relaxed">실제 시공 현장과 장비를 확인하세요</p>
           <div className="flex justify-center gap-8 mt-6">
             {[
