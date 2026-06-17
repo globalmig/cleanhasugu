@@ -4,6 +4,8 @@ import WhyCarousel from "@/components/WhyCarousel";
 import HeroVideo from "@/components/HeroVideo";
 import ReviewSection from "@/components/ReviewSection";
 import { Phone, Check } from "lucide-react";
+import { PiToiletBold, PiWavesBold } from "react-icons/pi";
+import { MdWaterDrop, MdPlumbing, MdShower, MdPhone } from "react-icons/md";
 import BgVideo from "@/components/BgVideo";
 import StatsSection from "@/components/StatsSection";
 import ProcessSection from "@/components/ProcessSection";
@@ -33,10 +35,10 @@ export default function Home() {
               <span className="hero-title block" style={{ color: "#111827" }}>해결합니다</span>
             </h1>
             <p className="text-xs sm:text-sm mb-4 sm:mb-5" style={{ color: "rgba(30,30,30,0.65)", lineHeight: 1.75 }}>
-              막힘부터 악취까지<br />원인을 찾아 완벽 해결,<br />재발 걱정 없습니다.
+              막힘부터 악취까지<br />원인을 찾아 완벽 해결,<br />확실한 AS 제공 !
             </p>
             <div className="flex flex-wrap gap-1.5 mb-4">
-              {["고압세척", "배관내시경", "재발 방지"].map((tag) => (
+              {["온수고압세척", "배관내시경", "재발 방지"].map((tag) => (
                 <span key={tag} className="text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full"
                   style={{ color: "#374151", background: "rgba(0,0,0,0.07)", border: "1px solid rgba(0,0,0,0.15)" }}>
                   {tag}
@@ -95,13 +97,70 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── 주요 업무 ── */}
+      <section className="py-14 sm:py-20 px-4" style={{ background: "#f8f8fb" }}>
+        <div className="max-w-130 mx-auto">
+          <div className="text-center mb-8 sm:mb-10">
+            <div className="section-divider" />
+            <h2 className="text-gray-900 text-2xl sm:text-3xl font-black">주요 업무</h2>
+            <p className="text-gray-500 text-sm mt-2">신속한 방문과 정확한 진단으로 문제를 해결해드립니다</p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {[
+              { Icon: PiToiletBold,  color: "#3B82F6", title: "배관 · 하수구 막힘", desc: "화장실, 욕실, 주방, 베란다 등 각종 막힘 문제 해결" },
+              { Icon: PiWavesBold,   color: "#0EA5E9", title: "역류 해결",           desc: "원인 진단 후 역류 문제 신속 처리" },
+              { Icon: MdWaterDrop,   color: "#06B6D4", title: "누수 탐지",           desc: "최신 장비를 이용한 정확한 누수 진단 및 공사" },
+              { Icon: MdPlumbing,    color: "#8B5CF6", title: "배관 관리",           desc: "배관 점검 및 유지관리 서비스 제공" },
+              { Icon: MdShower,      color: "#10B981", title: "온수고압세척",         desc: "배관 내부 세척 및 배수 성능 개선" },
+              { Icon: MdPhone,       color: null,      title: "010-5117-2700",       desc: "24시간 365일 언제든지 상담 가능", cta: true },
+            ].map(({ Icon, color, title, desc, cta }) => (
+              cta ? (
+                <a
+                  key={title}
+                  href="tel:01051172700"
+                  className="rounded-2xl p-4 flex flex-col justify-between no-underline"
+                  style={{
+                    background: "linear-gradient(135deg,#FFB800,#FF6B00)",
+                    boxShadow: "0 4px 16px rgba(255,184,0,0.3)",
+                    minHeight: 120,
+                  }}
+                >
+                  <Icon size={26} color="#000" />
+                  <div>
+                    <p className="font-black text-black text-sm leading-snug mb-0.5">{title}</p>
+                    <p className="text-black/60 text-xs leading-relaxed">{desc}</p>
+                  </div>
+                </a>
+              ) : (
+                <div
+                  key={title}
+                  className="rounded-2xl p-4 flex flex-col justify-between bg-white"
+                  style={{
+                    border: "1px solid rgba(0,0,0,0.06)",
+                    boxShadow: "0 1px 8px rgba(0,0,0,0.04)",
+                    minHeight: 120,
+                  }}
+                >
+                  <Icon size={26} color={color!} />
+                  <div>
+                    <p className="font-black text-gray-900 text-sm leading-snug mb-0.5">{title}</p>
+                    <p className="text-gray-400 text-xs leading-relaxed">{desc}</p>
+                  </div>
+                </div>
+              )
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── WHY CHOOSE US ── */}
       <section className="py-14 sm:py-20" style={{ background: "#f8f8fb" }}>
         <div className="max-w-130 mx-auto px-4 mb-8 sm:mb-12">
           <div className="text-center">
             <div className="section-divider"></div>
             <h2 className="text-gray-900 text-2xl sm:text-3xl font-black">왜 저희를 선택해야 할까요?</h2>
-            <p className="text-gray-500 text-sm mt-3">자격증 보유 전문가의 7가지 차별점</p>
+            <p className="text-gray-500 text-sm mt-3">자격증 보유 전문가의 6가지 차별점</p>
           </div>
         </div>
         <WhyCarousel />
@@ -183,8 +242,8 @@ export default function Home() {
         <div className="max-w-130 mx-auto">
           <div className="text-center mb-8 sm:mb-12">
             <div className="section-divider"></div>
-            <h2 className="text-gray-900 text-2xl sm:text-3xl font-black">전문 장비 사용</h2>
-            <p className="text-gray-500 text-sm mt-2">최신 전문 장비로 더 빠르고 완벽하게</p>
+            <h2 className="text-gray-900 text-2xl sm:text-3xl font-black">온수고압세척 전문</h2>
+            <p className="text-gray-500 text-sm mt-2">뜨거운 온수로 기름때·이물질까지 완벽 제거</p>
           </div>
 
           <div className="grid grid-cols-2 gap-2 sm:gap-3">
@@ -200,8 +259,8 @@ export default function Home() {
                 <Image src="/images/tool_01.png" alt="고압 세척 장비" fill className="object-cover" />
               </div>
               <div className="px-3 py-3">
-                <h3 className="font-black text-gray-900 text-sm mb-1">고압 세척기</h3>
-                <p className="text-gray-400 text-xs leading-relaxed">200bar 초고압 워터젯으로 강력한 세척 효과</p>
+                <h3 className="font-black text-gray-900 text-sm mb-1">온수고압세척기</h3>
+                <p className="text-gray-400 text-xs leading-relaxed">고온 온수로 기름때·찌꺼기를 녹이며 완전 제거</p>
               </div>
             </div>
 
@@ -233,7 +292,7 @@ export default function Home() {
           >
             <h3 className="font-black text-gray-900 text-sm mb-3">장비 특장점</h3>
             <div className="flex flex-col gap-3">
-              {["HD 고화질 내시경으로 막힘 원인 즉시 파악", "200bar 초고압 세척으로 완벽 제거", "친환경 세제 사용으로 배관 손상 없음", "모든 규격 배관 대응 가능"].map((item) => (
+              {["고온 온수로 기름때·유지 성분까지 완전 용해", "일반 고압세척 대비 세척력 2배 이상", "친환경 방식으로 배관 손상 없음", "주방·욕실·하수구 모든 배관 적용 가능"].map((item) => (
                 <div key={item} className="flex items-center gap-2.5">
                   <span className="w-5 h-5 rounded-full flex items-center justify-center shrink-0" style={{ background: "#FFB80018" }}>
                     <Check size={11} color="#FF8C00" strokeWidth={2.5} />
