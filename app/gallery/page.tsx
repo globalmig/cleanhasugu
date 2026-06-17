@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import SiteGNB from "@/components/SiteGNB";
 import GalleryGrid, { type GridItem } from "@/components/GalleryGrid";
 import Link from "next/link";
+import Image from "next/image";
 import { Phone } from "lucide-react";
 
 /* Supabase 데이터가 없을 때 보여줄 기본 이미지 */
@@ -52,44 +53,22 @@ export default async function GalleryPage() {
     <main className="min-h-screen overflow-x-hidden" style={{ background: "#f8f8fb" }}>
       <SiteGNB solid />
 
-      {/* 히어로 배너 */}
-      <section
-        className="relative overflow-hidden"
-        style={{
-          paddingTop: 56,
-          background: "linear-gradient(160deg,#06060f 0%,#0d1a30 60%,#050d18 100%)",
-          minHeight: 220,
-        }}
-      >
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,184,0,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,184,0,0.04) 1px,transparent 1px)",
-            backgroundSize: "40px 40px",
-          }}
-        />
-        <div
-          className="absolute pointer-events-none"
-          style={{
-            width: 360, height: 360, borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(255,184,0,0.12) 0%, transparent 70%)",
-            top: -80, right: -60,
-          }}
-        />
-        <div className="relative z-10 max-w-130 mx-auto px-5 py-12 text-center">
-          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#FFB800" }}>Gallery</p>
-          <h1 className="text-white text-2xl sm:text-3xl font-black mb-3">시공 갤러리</h1>
-          <p className="text-white/50 text-sm leading-relaxed">실제 시공 현장과 장비를 확인하세요</p>
-          <div className="flex justify-center gap-8 mt-6">
+      {/* 헤더 */}
+      <section className="relative overflow-hidden" style={{ paddingTop: 56, background: "#111827" }}>
+        <Image src="/images/bg_water.jpg" alt="" fill className="object-cover" style={{ opacity: 0.15 }} aria-hidden />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(17,24,39,0.95) 40%, rgba(17,24,39,0.6) 100%)" }} />
+        <div className="relative z-10 max-w-130 mx-auto px-4 py-10 sm:py-12">
+          <h1 className="text-white text-2xl sm:text-3xl font-black mb-2">시공 갤러리</h1>
+          <p className="text-white/50 text-sm leading-relaxed">실제 현장에서 직접 촬영한 시공 사례입니다</p>
+          <div className="flex gap-6 mt-5 pt-5" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
             {[
-              { num: `${items.length}+`, label: "갤러리 사진" },
+              { num: `${items.length}+`, label: "등록 사진" },
               { num: "5,000+",           label: "누적 시공" },
-              { num: "4.9★",            label: "고객 평점" },
+              { num: "4.9",              label: "고객 평점" },
             ].map(({ num, label }) => (
-              <div key={label} className="text-center">
-                <p className="font-black text-lg" style={{ color: "#FFB800" }}>{num}</p>
-                <p className="text-white/40 text-xs">{label}</p>
+              <div key={label}>
+                <p className="font-black text-base text-white">{num}</p>
+                <p className="text-white/40 text-xs mt-0.5">{label}</p>
               </div>
             ))}
           </div>
