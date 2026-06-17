@@ -293,15 +293,37 @@ export default function Home() {
       <section className="relative py-14 sm:py-20 overflow-hidden" style={{ background: "linear-gradient(160deg,#06060f 0%,#090918 60%,#050d18 100%)" }}>
         <div className="absolute inset-0 pointer-events-none"
           style={{ backgroundImage: "linear-gradient(rgba(0,255,180,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,180,0.025) 1px,transparent 1px)", backgroundSize: "44px 44px" }} />
-        <div className="relative z-10 max-w-130 mx-auto px-4">
+
+        <div className="relative z-10 px-4">
+          {/* 헤더 */}
           <p className="text-xs font-bold uppercase tracking-widest mb-2 text-center" style={{ color: "#FFB800" }}>Service Area</p>
           <h2 className="text-white text-2xl sm:text-3xl font-black text-center mb-6">서비스 지역</h2>
 
-          <div className="w-full max-w-3xl">
-            <Image src="/images/map.png" alt="서비스 지역 지도" width={900} height={900} className="mx-auto rounded-2xl shadow-lg object-cover" />
+          {/* 지도 — 컨테이너 넓게 */}
+          <div className="max-w-xl mx-auto">
+            <Image src="/images/map.png" alt="서비스 지역 지도" width={900} height={900} className="w-full rounded-2xl shadow-lg" />
           </div>
 
-          <p className="text-white/50 text-xs text-center mt-1">* 위 지역 외에도 상담 후 출동 가능합니다</p>
+          {/* 지역 카드 */}
+          <div className="max-w-130 mx-auto mt-6 grid grid-cols-3 gap-2 sm:gap-3">
+            {[
+              { name: "서울", areas: "강남·강서·마포·노원·송파·은평 외 전구" },
+              { name: "경기", areas: "고양·성남·파주·남양주·하남·의정부 외" },
+              { name: "인천", areas: "남동·계양·부평·연수·서구 외 전구" },
+            ].map(({ name, areas }) => (
+              <div
+                key={name}
+                className="rounded-xl px-2 py-3 sm:p-4 text-center"
+                style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}
+              >
+                <p className="text-white font-black text-lg sm:text-2xl mb-0.5">{name}</p>
+                <p className="font-bold text-[10px] sm:text-xs mb-1.5" style={{ color: "#FFB800" }}>전 지역</p>
+                <p className="text-white/40 text-[10px] leading-relaxed hidden sm:block">{areas}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-white/40 text-xs text-center mt-4 max-w-130 mx-auto">* 위 지역 외에도 상담 후 출동 가능합니다</p>
         </div>
       </section>
 
