@@ -1,6 +1,6 @@
 "use client";
 
-import { Award, ScanSearch, Droplets, ShieldCheck, Zap, Receipt, Leaf, type LucideIcon } from "lucide-react";
+import { Award, ScanSearch, Droplets, ShieldCheck, Zap, Receipt, type LucideIcon } from "lucide-react";
 
 const CARDS: {
   badge: string;
@@ -13,8 +13,8 @@ const CARDS: {
   {
     badge: "국가공인 자격",
     Icon: Award,
-    title: "국가공인 자격증 보유 기술자",
-    desc: "배관기능사·위생설비기능사 국가기술자격증을 보유한 전문 기술자가 직접 출동합니다. 무자격 업체와는 다릅니다.",
+    title: "자격증 보유 전문 기술자",
+    desc: "배관기능사·위생설비기능사 자격증을 보유한 기술자가 직접 출동합니다.",
     color: "#FFB800",
     highlight: ["배관기능사", "위생설비기능사"],
   },
@@ -22,49 +22,41 @@ const CARDS: {
     badge: "정밀 진단",
     Icon: ScanSearch,
     title: "배관내시경 정밀 진단",
-    desc: "HD 고화질 내시경 카메라로 배관 내부를 직접 확인하며 막힘 원인을 정확히 파악합니다. 눈으로 보고 납득한 뒤 시공합니다.",
+    desc: "내시경 카메라로 배관 내부를 직접 확인하고 원인을 파악한 뒤 시공합니다.",
     color: "#3B82F6",
     highlight: ["HD 내시경 카메라", "원인 파악 후 시공"],
   },
   {
-    badge: "완벽 세척",
+    badge: "온수고압세척",
     Icon: Droplets,
-    title: "200bar 고압세척 완전 제거",
-    desc: "가정용 세제로는 안 되는 굳은 기름때·이물질을 200bar 초고압 워터젯으로 뿌리부터 완전히 제거합니다.",
+    title: "온수고압세척 전문",
+    desc: "고온 온수로 기름때·이물질을 녹이며 배관 내부를 완전히 세척합니다.",
     color: "#0EA5E9",
-    highlight: ["200bar 고압 워터젯", "뿌리부터 완전 제거"],
+    highlight: ["고온 온수 사용", "완전 세척"],
   },
   {
     badge: "재발 방지",
     Icon: ShieldCheck,
-    title: "재발 방지 코팅 처리",
-    desc: "단순 통수로 끝나지 않습니다. 시공 후 배관 내벽에 코팅 처리를 추가하여 찌꺼기가 다시 쌓이는 것을 방지합니다.",
+    title: "재발 방지 처리",
+    desc: "시공 후 배관 내벽 코팅 처리로 재발을 방지하고 AS를 보장합니다.",
     color: "#10B981",
-    highlight: ["내벽 코팅 처리", "재발률 대폭 감소"],
+    highlight: ["내벽 코팅", "AS 보장"],
   },
   {
     badge: "24시간",
     Icon: Zap,
-    title: "24시간 365일 긴급 출동",
-    desc: "밤이든 주말이든 즉시 출동합니다. 평균 대기시간 1~2시간 이내로 빠르게 해결합니다.",
+    title: "24시간 긴급 출동",
+    desc: "밤이든 주말이든 즉시 출동합니다. 평균 1~2시간 이내 도착합니다.",
     color: "#EF4444",
     highlight: ["평균 1~2시간 출동", "연중무휴"],
   },
   {
     badge: "투명 견적",
     Icon: Receipt,
-    title: "현장 확인 후 투명한 견적",
-    desc: "전화 견적 없습니다. 내시경 진단 후 정확한 원인을 확인하고 추가 비용 없이 합의된 금액만 청구합니다.",
+    title: "현장 확인 후 투명 견적",
+    desc: "진단 후 추가 비용 없이 합의된 금액만 청구합니다. 숨겨진 비용 없음.",
     color: "#8B5CF6",
     highlight: ["추가 비용 없음", "사전 견적 확정"],
-  },
-  {
-    badge: "친환경",
-    Icon: Leaf,
-    title: "친환경 약품, 배관 손상 없음",
-    desc: "배관을 부식시키는 강산성 약품을 사용하지 않습니다. 환경부 인증 친환경 세제로 배관 수명을 지키면서 청소합니다.",
-    color: "#22C55E",
-    highlight: ["환경부 인증 세제", "배관 수명 보호"],
   },
 ];
 
